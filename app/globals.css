@@ -4211,3 +4211,203 @@ footer {
     margin-bottom: 7px;
   }
 }
+/* =====================================================
+   PAN CARD — PREMIUM VISUAL
+   ===================================================== */
+
+.pan-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding: 0;
+  min-height: 0;
+
+  background: transparent;
+  border: 0;
+  overflow: visible;
+
+  gap: 2px;
+
+  transform: none !important;
+}
+
+.pan-service-card:hover {
+  transform: none !important;
+  border-color: transparent;
+}
+
+
+/* =====================================================
+   PAN CARD IMAGE
+   ===================================================== */
+
+.pan-card-visual {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+
+  height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+
+  background: transparent;
+
+  perspective: 800px;
+  cursor: pointer;
+}
+
+.pan-card-image {
+  object-fit: contain;
+
+  /*
+   * Makes the actual PNG much larger
+   * while keeping its natural proportions.
+   */
+  transform-origin: center center;
+
+  will-change: transform;
+
+  transition:
+    transform 0.22s cubic-bezier(.22, 1, .36, 1),
+    filter 0.3s ease;
+
+  filter:
+    drop-shadow(
+      0 9px 16px rgba(23, 34, 31, 0.13)
+    );
+}
+
+
+/* =====================================================
+   IMAGE HOVER
+   ===================================================== */
+
+.pan-card-visual:hover .pan-card-image {
+  filter:
+    drop-shadow(
+      0 13px 21px rgba(23, 34, 31, 0.17)
+    );
+}
+
+
+/* =====================================================
+   DYNAMIC-ISLAND STYLE PILL
+   ===================================================== */
+
+.pan-service-pill {
+  width: 100%;
+  max-width: 330px;
+
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  background: var(--paper);
+
+  border: 1px solid var(--line);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 6px 18px rgba(23, 34, 31, 0.08);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.3s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.pan-service-card:hover .pan-service-pill {
+  transform: translateY(-1px);
+
+  border-color:
+    rgba(13, 102, 93, 0.2);
+
+  box-shadow:
+    0 9px 22px rgba(23, 34, 31, 0.11);
+}
+
+
+/* =====================================================
+   LEFT — PAN CARD
+   ===================================================== */
+
+.pan-service-name {
+  font:
+    500 11px 'Space Grotesk',
+    sans-serif;
+
+  color: var(--ink);
+
+  white-space: nowrap;
+}
+
+
+/* =====================================================
+   RIGHT — DEMO GUIDE
+   ===================================================== */
+
+.pan-demo-guide {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  font:
+    600 9px 'DM Sans',
+    sans-serif;
+
+  color: var(--teal);
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.6px;
+
+  white-space: nowrap;
+}
+
+.pan-demo-guide span {
+  font-size: 12px;
+  line-height: 1;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.pan-service-card:hover
+.pan-demo-guide span {
+  transform: translate(2px, -2px);
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+  .pan-card-visual {
+    max-width: 390px;
+    height: 220px;
+  }
+
+  .pan-service-pill {
+    max-width: 300px;
+    height: 36px;
+
+    padding: 0 14px;
+  }
+}
